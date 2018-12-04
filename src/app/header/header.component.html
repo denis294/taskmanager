@@ -1,0 +1,50 @@
+<nav>
+  <div class="screen">
+    <ul>
+      <li routerLinkActive="active">
+        <a routerLink="tasks">Tasks</a>
+      </li>
+      <li routerLinkActive="active">
+          <a routerLink="tasks/new">Add a new task</a>
+        </li>
+    </ul>
+    <ul>
+        <li routerLinkActive="active">
+          <a routerLink="tasks-chart">Tasks progression chart</a>
+        </li>
+      </ul>
+    <ul>
+      <li routerLinkActive="active" *ngIf="!isAuth">
+        <a routerLink="user/signup">Create an accompt</a>
+      </li>
+      <li routerLinkActive="active" *ngIf="!isAuth">
+        <a routerLink="user/signin">Log in</a>
+      </li>
+      <li>
+        <a (click)="onSignOut()" style="cursor:pointer" *ngIf="isAuth">Log out</a>
+      </li>
+    </ul>
+  </div>    
+  <button mat-icon-button class="mobilemenu" [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <ul>
+    <mat-menu #menu="matMenu">
+      <li mat-menu-item>
+          <a routerLink="tasks">Tasks</a>
+      </li>
+      <li mat-menu-item>
+          <a routerLink="tasks/new">Add a new task</a>
+      </li>
+      <li mat-menu-item>
+          <a routerLink="tasks-chart">Tasks progression chart</a>
+      </li>
+      <li mat-menu-item *ngIf="!isAuth">
+          <a routerLink="user/signup">Create an accompt</a>
+      </li>
+      <li mat-menu-item *ngIf="isAuth">
+          <a (click)="onSignOut()" style="cursor:pointer">Log out</a>
+      </li>
+    </mat-menu>
+  </ul>
+</nav>

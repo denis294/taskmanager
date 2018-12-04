@@ -1,0 +1,22 @@
+<div class="row singletask">
+  <div class="col s12">
+        <div class="bloc-image">
+            <img class="responsive-img img-single-task" *ngIf="task.photo" [src]="task.photo">
+        </div>
+        <div class="bloc-content">
+            <h3>{{ task.title }}</h3>
+            <p>{{ task.content }}</p>
+            <h4>Progression {{ task.progression }}&#37;</h4>
+            <div class="row">
+                <mat-progress-bar
+                    class="task-progress col s6"
+                    [color]="color"
+                    [mode]="mode"
+                    [value]="task.progression"
+                    [bufferValue]="bufferValue">
+                </mat-progress-bar>
+            </div>
+            <button class="btn" (click)="onBack()">Back</button>
+        </div>
+  </div>
+</div>

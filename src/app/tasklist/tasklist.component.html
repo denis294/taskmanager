@@ -1,0 +1,32 @@
+
+<div class="row">
+  <div class="col s12">
+    <h2>Tasks</h2>
+    
+      <mat-card class="tasksbloc col s10 m5" *ngFor="let task of tasks; let i = index" (click)="onViewTask(i)">
+        <h4>
+          {{ task.title }}
+        </h4>
+        <span class="datepost">{{ task.date | date: 'short'}}</span>
+        <div class="imgbloc">
+          <img class="img-tasks-list" *ngIf="task.photo" [src]="task.photo">
+        </div>
+        <section class="progress-section">
+            <mat-progress-bar
+                class="task-progress"
+                [color]="color"
+                [mode]="mode"
+                [value]="task.progression"
+                [bufferValue]="bufferValue">
+            </mat-progress-bar>
+          </section>
+          <button class="btn deletetask" (click)="onDeleteTask(task)">
+              <span>Delete Task</span>
+          </button>
+      </mat-card>
+  </div>
+  <div class="row">
+      <button class="btn col s4 offset-s3" (click)="onNewTask()">New task</button>
+    </div>
+</div>
+
